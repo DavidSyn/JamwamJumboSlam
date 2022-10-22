@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using WamjamJumboSlam.Bootstrap;
-using WamjamJumboSlam.DataLayer;
+﻿using WamjamJumboSlam.Bootstrap;
 
 namespace WamjamJumboSlam
 {
@@ -18,7 +16,7 @@ namespace WamjamJumboSlam
             services.AddControllers();
             services.AddDatabase(
                 Configuration["AZURE_SQL_CONNECTIONSTRING"]);
-           
+            services.AddRepositories();
 
             services.AddSwagger();
         }
@@ -32,7 +30,6 @@ namespace WamjamJumboSlam
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
