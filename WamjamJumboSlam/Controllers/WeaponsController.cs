@@ -1,25 +1,27 @@
+using Contacts.V1.Requests;
 using Microsoft.AspNetCore.Mvc;
 using WamjamJumboSlam.DataLayer;
 
 namespace WamjamJumboSlam.Controllers
 {
     [ApiController]
-    [Route("weaponprofiles")]
-    public class WeaponProfilesController : ControllerBase
+    [Route("weapons")]
+    public class WeaponsController : ControllerBase
     {
-        private readonly ILogger<WeaponProfilesController> _logger;
+        private readonly ILogger<WeaponsController> _logger;
         private readonly DatabaseContext _databaseContext;
 
-        public WeaponProfilesController(
-            ILogger<WeaponProfilesController> logger,
+        public WeaponsController(
+            ILogger<WeaponsController> logger,
             DatabaseContext databaseContext)
         {
             _logger = logger;
             _databaseContext = databaseContext;
         }
 
-        [HttpGet]
-        public ActionResult<string> Get()
+        [HttpPost]
+        public ActionResult<string> Post(
+            [FromBody]PostWeaponRequest request)
         {
             return Ok("Foobar");
         }
