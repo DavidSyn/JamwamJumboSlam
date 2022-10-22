@@ -16,8 +16,8 @@ namespace WamjamJumboSlam
         public void RegisterServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<DatabaseContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING")));
+            services.AddDatabase(
+                Configuration["AZURE_SQL_CONNECTIONSTRING"]);
            
 
             services.AddSwagger();
@@ -26,6 +26,8 @@ namespace WamjamJumboSlam
         public void Configure(WebApplication app, IWebHostEnvironment env)
         {
             app.ConfigureSwagger();
+            app.SetupDatabase(
+                Configuration["REBUILD_DATABASE"]);
 
             app.UseHttpsRedirection();
 
