@@ -16,6 +16,7 @@ namespace WamjamJumboSlam
             services.AddControllers();
             services.AddDatabase(
                 Configuration["AZURE_SQL_CONNECTIONSTRING"]);
+            services.AddRepositories();
 
             services.AddSwagger();
         }
