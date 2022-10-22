@@ -16,15 +16,9 @@ namespace WamjamJumboSlam
         public void RegisterServices(IServiceCollection services)
         {
             services.AddControllers();
-            try
-            {
-                services.AddDbContext<DatabaseContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING")));
-            }
-            catch (Exception ex)
-            {
-                var hej = 0;
-            }
+            services.AddDbContext<DatabaseContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING")));
+           
 
             services.AddSwagger();
         }
