@@ -1,6 +1,8 @@
 using Contracts.V1.Requests;
 using Microsoft.AspNetCore.Mvc;
 using Api.DataLayer;
+using Api.LogicLayer.Validators.Interfaces;
+using System.Net;
 
 namespace Api.Controllers
 {
@@ -9,21 +11,35 @@ namespace Api.Controllers
     public class WeaponsController : ControllerBase
     {
         private readonly ILogger<WeaponsController> _logger;
-        private readonly DatabaseContext _databaseContext;
+        private readonly IWeaponValidator _validator;
 
         public WeaponsController(
             ILogger<WeaponsController> logger,
-            DatabaseContext databaseContext)
+            IWeaponValidator validator)
         {
             _logger = logger;
-            _databaseContext = databaseContext;
+            _validator = validator;
         }
 
         [HttpPost]
         public ActionResult<string> Post(
             [FromBody]PostWeaponRequest request)
         {
-            return Ok("Foobar");
+            var errors = _validator.Validate(request);
+            if (errors.Count > 0)
+            {
+                return BadRequest(string.Join(", ", errors));
+            }
+
+            try
+            {
+                return Ok("Foobar");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.ToString());
+                return StatusCode((int)HttpStatusCode.InternalServerError);
+            }
         }
     }
 }

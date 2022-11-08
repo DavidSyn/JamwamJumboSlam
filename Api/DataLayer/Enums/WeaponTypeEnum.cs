@@ -2,6 +2,7 @@
 {
     public enum WeaponTypeEnum
     {
+        Melee,
         Assault,
         Heavy,
         RapidFire,
