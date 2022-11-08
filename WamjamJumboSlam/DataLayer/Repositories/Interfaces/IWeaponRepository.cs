@@ -1,6 +1,6 @@
-﻿using WamjamJumboSlam.DataLayer.Models;
+﻿using Api.DataLayer.Models;
 
-namespace WamjamJumboSlam.DataLayer.Repositories.Interfaces
+namespace Api.DataLayer.Repositories.Interfaces
 {
     public interface IWeaponRepository
     {

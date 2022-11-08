@@ -1,4 +1,4 @@
-namespace WamjamJumboSlam
+namespace Api
 {
     public class Program
     {

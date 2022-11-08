@@ -1,6 +1,6 @@
-﻿using Contacts.V1.Requests;
+﻿using Contracts.V1.Requests;
 
-namespace WamjamJumboSlam.LogicLayer.Validators.Interfaces
+namespace Api.LogicLayer.Validators.Interfaces
 {
     public interface IWeaponAbilityValidator
     {

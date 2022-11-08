@@ -1,6 +1,6 @@
-﻿using WamjamJumboSlam.DataLayer.Enums;
+﻿using Api.DataLayer.Enums;
 
-namespace WamjamJumboSlam.DataLayer.Models
+namespace Api.DataLayer.Models
 {
     public class WeaponProfile
     {

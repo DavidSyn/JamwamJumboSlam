@@ -1,8 +1,8 @@
-﻿using Contacts.V1.Models;
-using Contacts.V1.Requests;
-using WamjamJumboSlam.DataLayer.Models;
+﻿using Contracts.V1.Models;
+using Contracts.V1.Requests;
+using Api.DataLayer.Models;
 
-namespace WamjamJumboSlam.LogicLayer.Mapper
+namespace Api.LogicLayer.Mapper
 {
     public static class WeaponAbilityMapper
     {

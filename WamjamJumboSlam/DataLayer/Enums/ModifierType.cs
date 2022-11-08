@@ -1,4 +1,4 @@
-﻿namespace WamjamJumboSlam.DataLayer.Enums
+﻿namespace Api.DataLayer.Enums
 {
     public enum ModifierType
     {

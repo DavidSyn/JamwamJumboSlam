@@ -1,6 +1,6 @@
 ﻿using System.Threading.RateLimiting;
 
-namespace WamjamJumboSlam.Bootstrap
+namespace Api.Bootstrap
 {
     public static class RegisterRateLimitingExtensions
     {

@@ -1,4 +1,4 @@
-﻿namespace Contacts.V1.Models
+﻿namespace Contracts.V1.Models
 {
     public class WeaponAbilityDto
     {

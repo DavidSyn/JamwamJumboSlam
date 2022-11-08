@@ -1,7 +1,7 @@
-﻿using WamjamJumboSlam.LogicLayer.Validators.Interfaces;
-using WamjamJumboSlam.LogicLayer.Validators;
+﻿using Api.LogicLayer.Validators.Interfaces;
+using Api.LogicLayer.Validators;
 
-namespace WamjamJumboSlam.Bootstrap
+namespace Api.Bootstrap
 {
     public static class RegisterValidatorsExtensions
     {

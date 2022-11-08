@@ -1,4 +1,4 @@
-﻿namespace WamjamJumboSlam.DataLayer.Models
+﻿namespace Api.DataLayer.Models
 {
     public class Weapon
     {
