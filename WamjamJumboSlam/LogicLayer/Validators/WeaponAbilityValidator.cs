@@ -5,6 +5,17 @@ namespace WamjamJumboSlam.LogicLayer.Validators
 {
     public class WeaponAbilityValidator : IWeaponAbilityValidator
     {
+        public List<string> Validate(Guid id)
+        {
+            var errors = new List<string>();
+            if (id == Guid.Empty)
+            {
+                errors.Add($"{nameof(id)} is missing.");
+            }
+
+            return errors;
+        }
+
         public List<string> Validate(PostWeaponAbilityRequest request)
         {
             var errors = new List<string>();
