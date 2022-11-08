@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WamjamJumboSlam.DataLayer.Models;
+using Api.DataLayer.Models;
 
-namespace WamjamJumboSlam.DataLayer
+namespace Api.DataLayer
 {
     public class DatabaseContext : DbContext
     {

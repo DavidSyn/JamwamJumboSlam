@@ -1,24 +1,28 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using WamjamJumboSlam.DataLayer;
+using Api.DataLayer;
 
-namespace WamjamJumboSlam.Bootstrap
+namespace Api.Bootstrap
 {
     public static class RegisterDatabaseExtensions
     {
         public static void AddDatabase(
             this IServiceCollection services,
-            string connectionString)
+            string? connectionString)
         {
+            ArgumentNullException.ThrowIfNull(connectionString);
+
             services.AddDbContext<DatabaseContext>(options =>
                 options.UseSqlServer(connectionString));
         }
 
         public static void SetupDatabase(
             this WebApplication app,
-            string rebuildDatabase)
+            string? rebuildDatabase)
         {
+            ArgumentNullException.ThrowIfNull(rebuildDatabase);
+
             if (!string.IsNullOrEmpty(rebuildDatabase) &&
                 rebuildDatabase == "true")
             {

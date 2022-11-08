@@ -1,7 +1,7 @@
-﻿using WamjamJumboSlam.DataLayer.Repositories;
-using WamjamJumboSlam.DataLayer.Repositories.Interfaces;
+﻿using Api.DataLayer.Repositories;
+using Api.DataLayer.Repositories.Interfaces;
 
-namespace WamjamJumboSlam.Bootstrap
+namespace Api.Bootstrap
 {
     public static class RegisterRepositoriesExtensions
     {

@@ -1,8 +1,8 @@
-using Contacts.V1.Requests;
+using Contracts.V1.Requests;
 using Microsoft.AspNetCore.Mvc;
-using WamjamJumboSlam.DataLayer;
+using Api.DataLayer;
 
-namespace WamjamJumboSlam.Controllers
+namespace Api.Controllers
 {
     [ApiController]
     [Route("weapons")]

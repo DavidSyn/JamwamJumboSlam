@@ -1,11 +1,11 @@
-﻿using Contacts.V1.Requests;
+﻿using Contracts.V1.Requests;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
-using WamjamJumboSlam.DataLayer.Repositories.Interfaces;
-using WamjamJumboSlam.LogicLayer.Mapper;
-using WamjamJumboSlam.LogicLayer.Validators.Interfaces;
+using Api.DataLayer.Repositories.Interfaces;
+using Api.LogicLayer.Mapper;
+using Api.LogicLayer.Validators.Interfaces;
 
-namespace WamjamJumboSlam.Controllers
+namespace Api.Controllers
 {
     [ApiController]
     [Route("weaponabilities")]

@@ -1,4 +1,4 @@
-﻿namespace WamjamJumboSlam.Bootstrap
+﻿namespace Api.Bootstrap
 {
     public static class RegisterSwaggerExtensions
     {

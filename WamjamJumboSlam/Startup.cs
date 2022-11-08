@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.RateLimiting;
 using System.Threading.RateLimiting;
-using WamjamJumboSlam.Bootstrap;
+using Api.Bootstrap;
 
-namespace WamjamJumboSlam
+namespace Api
 {
     public class Startup
     {
@@ -28,15 +28,13 @@ namespace WamjamJumboSlam
         public void Configure(WebApplication app, IWebHostEnvironment env)
         {
             app.ConfigureSwagger();
-            app.SetupDatabase(
-                Configuration["REBUILD_DATABASE"]);
-
             app.UseHttpsRedirection();
-
             app.UseAuthorization();
             app.UseRateLimiter();
-
             app.MapControllers();
+
+            app.SetupDatabase(
+                Configuration["REBUILD_DATABASE"]);
 
             app.Run();
         }

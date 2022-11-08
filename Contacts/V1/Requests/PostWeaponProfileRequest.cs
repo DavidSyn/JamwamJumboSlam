@@ -1,6 +1,6 @@
-﻿using Contacts.V1.Models;
+﻿using Contracts.V1.Models;
 
-namespace Contacts.V1.Requests
+namespace Contracts.V1.Requests
 {
     public class PostWeaponProfileRequest
     {

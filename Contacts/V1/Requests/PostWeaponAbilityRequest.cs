@@ -1,4 +1,4 @@
-﻿namespace Contacts.V1.Requests
+﻿namespace Contracts.V1.Requests
 {
     public class PostWeaponAbilityRequest
     {
