@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "WamjamJumboSlam\Api.csproj", "{98724500-25EC-40E1-BE49-CA49BF960EBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{98724500-25EC-40E1-BE49-CA49BF960EBB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "Contacts\Contracts.csproj", "{B0B2F7E3-A72B-402D-8D4F-3DD24AA452D5}"
 EndProject
