@@ -25,6 +25,31 @@ namespace WamjamJumboSlam.Controllers
             _validator = validator;
         }
 
+        [HttpGet("{id:Guid}")]
+        public async Task<ActionResult<Guid>> Get(
+            [FromRoute]Guid id)
+        {
+            var errors = _validator.Validate(id);
+            if (errors.Count > 0)
+            {
+                return BadRequest(string.Join(", ", errors));
+            }
+
+            try
+            {
+                var weaponAbility = await _repository
+                    .Get(id);
+                var result = weaponAbility.ToContract();
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.ToString());
+                return StatusCode((int)HttpStatusCode.InternalServerError);
+            }
+        }
+
         [HttpPost]
         public async Task<ActionResult<Guid>> Post(
             [FromBody]PostWeaponAbilityRequest request)

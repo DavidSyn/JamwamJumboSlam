@@ -1,4 +1,6 @@
-﻿using WamjamJumboSlam.Bootstrap;
+﻿using Microsoft.AspNetCore.RateLimiting;
+using System.Threading.RateLimiting;
+using WamjamJumboSlam.Bootstrap;
 
 namespace WamjamJumboSlam
 {
@@ -14,11 +16,13 @@ namespace WamjamJumboSlam
         public void RegisterServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddRateLimiting();
+            services.AddSwagger();
+
             services.AddDatabase(
                 Configuration["AZURE_SQL_CONNECTIONSTRING"]);
             services.AddRepositories();
-
-            services.AddSwagger();
+            services.AddValidators();
         }
 
         public void Configure(WebApplication app, IWebHostEnvironment env)
@@ -30,6 +34,7 @@ namespace WamjamJumboSlam
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
+            app.UseRateLimiter();
 
             app.MapControllers();
 
