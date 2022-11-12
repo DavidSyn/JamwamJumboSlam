@@ -7,6 +7,7 @@ namespace Api.LogicLayer.Validators
 {
     public class WeaponValidator : IWeaponValidator
     {
+        private Regex MultiplierRegex { get; set; }
         private Regex DieModifierRegex { get; set; }
         private Regex DieRegex { get; set; }
 
@@ -14,13 +15,14 @@ namespace Api.LogicLayer.Validators
         {
             DieRegex = new Regex("^[1-9]D[1-9]");
             DieModifierRegex = new Regex("^[1-9]D[1-9]+[1-9]");
+            MultiplierRegex = new Regex("^x[1-9]");
         }
 
         public List<string> Validate(PostWeaponRequest request)
         {
             var result = new List<string>();
 
-            if (request != null)
+            if (request == null)
             {
                 result.Add("Missing request!");
                 return result;
@@ -86,16 +88,38 @@ namespace Api.LogicLayer.Validators
                     errors.Add("WeaponType does not have a correct value");
                 }
             }
-            
+
+            if (!string.IsNullOrEmpty(request.WeaponTypeModifier))
+            {
+                if (!int.TryParse(request.WeaponTypeModifier, out _))
+                {
+                    if (!(DieRegex.IsMatch(request.WeaponTypeModifier) ||
+                        MultiplierRegex.IsMatch(request.WeaponTypeModifier) ||
+                        DieModifierRegex.IsMatch(request.WeaponTypeModifier)))
+                    {
+                        errors.Add($"{nameof(request.WeaponTypeModifier)} is wrongly formatted");
+                    }
+                }
+            }
+
             if (!string.IsNullOrEmpty(request.Strength))
             {
                 if (!int.TryParse(request.Strength, out _))
                 {
                     if (!(DieRegex.IsMatch(request.Strength) ||
+                        MultiplierRegex.IsMatch(request.Strength) ||
                         DieModifierRegex.IsMatch(request.Strength)))
                     {
                         errors.Add($"{nameof(request.Strength)} is wrongly formatted");
                     }
+                }
+            }
+
+            if (!string.IsNullOrEmpty(request.ArmourPenetration))
+            {
+                if (!int.TryParse(request.ArmourPenetration, out _))
+                {
+                    errors.Add($"{nameof(request.ArmourPenetration)} is wrongly formatted");
                 }
             }
 
