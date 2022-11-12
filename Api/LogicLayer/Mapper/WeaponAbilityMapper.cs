@@ -27,5 +27,15 @@ namespace Api.LogicLayer.Mapper
             };
             return result;
         }
+
+        public static List<WeaponAbilityDto> ToContracts(this List<WeaponAbility> models)
+        {
+            var result = new List<WeaponAbilityDto>();
+            foreach (var model in models)
+            {
+                result.Add(ToContract(model));
+            }
+            return result;
+        }
     }
 }

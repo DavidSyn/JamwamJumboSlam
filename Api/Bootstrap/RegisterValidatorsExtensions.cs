@@ -9,6 +9,7 @@ namespace Api.Bootstrap
             this IServiceCollection services)
         {
             services.AddTransient<IWeaponAbilityValidator, WeaponAbilityValidator>();
+            services.AddTransient<IWeaponValidator, WeaponValidator>();
         }
     }
 }

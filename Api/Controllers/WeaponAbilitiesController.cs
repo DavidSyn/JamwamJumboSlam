@@ -25,6 +25,24 @@ namespace Api.Controllers
             _validator = validator;
         }
 
+        [HttpGet("")]
+        public async Task<ActionResult<Guid>> Get()
+        {
+            try
+            {
+                var weaponAbility = await _repository
+                    .Get();
+                var result = weaponAbility.ToContracts();
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.ToString());
+                return StatusCode((int)HttpStatusCode.InternalServerError);
+            }
+        }
+
         [HttpGet("{id:Guid}")]
         public async Task<ActionResult<Guid>> Get(
             [FromRoute]Guid id)
